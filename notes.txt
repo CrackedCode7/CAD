@@ -1,0 +1,24 @@
+- Add in removal/adding vertex data dynamically
+
+- In an orthographic view, how would we go about
+  selecting an object (say a line) on the screen?
+    - One way this may be done is knowing where the
+      mouse is, and checking the screen for intersections
+      top to bottom (closest to user to farther away from
+      user).
+    - Probably need a way for the program to detect whether
+      you are close to selecting a valid object when the
+      objects are small, line lines.
+    - One way to do this could be with a orthographic
+      projection using the cursor as the center point, 
+      with some fixed pixel number around it.
+        - Read the depth value of the depth buffer at the
+          cursor.
+        - Iterate through objects to find the intersecting
+          candidate Need to have object depths figured out
+          beforehand, then iterate through a list of depths
+          to find if the mouse cursor depth equals the object
+          depth.
+        - After making sure the depth matches, we also need
+          to make sure the object is in the new projection
+          from the mouse, so use an intersection algorithm.
